@@ -35,7 +35,6 @@ export const AddMoney = () => {
           onChange={(e) => {
             console.log("Amount", e);
             setAmount(Number(e));
-            // setAmount(e.target.value as unknown as number);
           }}
         />
         <div className="py-4 text-left">Bank</div>
