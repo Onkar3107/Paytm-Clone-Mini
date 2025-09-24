@@ -18,6 +18,8 @@ app.post("/hdfcWebhook", async (req, res) => {
     amount: req.body.amount,
   };
 
+  // TODO: Check for 'Processing' status in db before updating
+
 //   console.log("Received webhook", paymentInformation);
 
   try {
