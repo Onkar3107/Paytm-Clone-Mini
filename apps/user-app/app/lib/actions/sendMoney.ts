@@ -3,7 +3,6 @@
 import db from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
-import { time } from "console";
 
 export const sendMoney = async (recipient: string, amount: number) => {
   const session = await getServerSession(authOptions);
