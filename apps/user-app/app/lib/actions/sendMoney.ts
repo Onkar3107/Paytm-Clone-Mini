@@ -3,6 +3,7 @@
 import db from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
+import { time } from "console";
 
 export const sendMoney = async (recipient: string, amount: number) => {
   const session = await getServerSession(authOptions);
@@ -69,6 +70,15 @@ export const sendMoney = async (recipient: string, amount: number) => {
       await tx.balance.update({
         where: { userId: recipientUser.id },
         data: { amount: { increment: amountInCents } },
+      });
+
+      await tx.p2pTransfer.create({
+        data: {
+          amount: amountInCents,
+          fromUserId: senderId,
+          toUserId: recipientUser.id,
+          timestamp: new Date(),
+        },
       });
     });
 
