@@ -4,6 +4,7 @@ import { Card } from "@repo/ui/card";
 import { Center } from "@repo/ui/center";
 import { TextInput } from "@repo/ui/textinput";
 import { useState } from "react";
+import { sendMoney } from "../app/lib/actions/sendMoney";
 
 export function SendCard() {
   const [number, setNumber] = useState("");
@@ -30,7 +31,7 @@ export function SendCard() {
             />
             <div className="pt-4 flex justify-center">
               <Button onClick={() => {
-                
+                sendMoney(number, Number(amount));
               }}>Send</Button>
             </div>
           </div>
