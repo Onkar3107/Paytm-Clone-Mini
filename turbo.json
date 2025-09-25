@@ -12,6 +12,20 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+
+    "user-app#build": {
+      "env": ["JWT_SECRET", "NEXTAUTH_URL"]
+    },
+    "user-app#dev": {
+      "env": ["JWT_SECRET", "NEXTAUTH_URL"]
+    },
+
+    "merchant-app#build": {
+      "env": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "NEXTAUTH_SECRET"]
+    },
+    "merchant-app#dev": {
+      "env": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "NEXTAUTH_SECRET"]
     }
   }
 }
