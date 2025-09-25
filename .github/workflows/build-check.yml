@@ -32,12 +32,12 @@ jobs:
 
       - name: Verify build outputs
         run: |
-          if [ ! -d "apps/web/.next" ]; then
-            echo "Web build failed: '.next' directory does not exist."
+          if [ ! -d "apps/merchant-app/.next" ]; then
+            echo "Merchant App build failed: '.next' directory does not exist."
             exit 1
           fi
-          if [ ! -d "apps/docs/.next" ]; then
-            echo "Docs build failed: '.next' directory does not exist."
+          if [ ! -d "apps/user-app/.next" ]; then
+            echo "User App build failed: '.next' directory does not exist."
             exit 1
           fi
           if [ ! -d "apps/bank-webhook/dist" ]; then
