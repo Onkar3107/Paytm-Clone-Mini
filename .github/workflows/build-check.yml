@@ -26,14 +26,22 @@ jobs:
 
       - name: Generate Prisma Client
         run: npm run prisma:generate
-
-      - name: Run build
+        
+      - name: Run Turborepo build
         run: npm run build
 
-      - name: Verify build output
+      - name: Verify build outputs
         run: |
-          if [ ! -d "dist" ]; then
-            echo "Build output directory 'dist' does not exist."
+          if [ ! -d "apps/web/.next" ]; then
+            echo "Web build failed: '.next' directory does not exist."
             exit 1
           fi
-          echo "Build completed successfully and 'dist' directory exists."
+          if [ ! -d "apps/docs/.next" ]; then
+            echo "Docs build failed: '.next' directory does not exist."
+            exit 1
+          fi
+          if [ ! -d "apps/bank-webhook/dist" ]; then
+            echo "Bank-webhook build failed: 'dist' directory does not exist."
+            exit 1
+          fi
+          echo "All builds completed successfully!"
